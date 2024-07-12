@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function DataFetcher({ url}) {
+function DataFetcher({ url }) {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -9,7 +9,7 @@ function DataFetcher({ url}) {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch("http://localhost:3000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q");
+                const response = await fetch("http://localhost:8000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q");
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -23,7 +23,7 @@ function DataFetcher({ url}) {
         };
 
         fetchData();
-    }, ["http://localhost:3000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q"]);
+    }, ["http://localhost:8000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q"]);
 
     if (isLoading) {
         return <p>Loading...</p>;
