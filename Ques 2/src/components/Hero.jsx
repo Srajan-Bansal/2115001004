@@ -15,7 +15,7 @@ function Hero() {
         maxPrice: 1000
     });
 
-    const [products,setProducts]=useState([]);
+    const [products, setProducts] = useState([]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -31,12 +31,10 @@ function Hero() {
 
         // Construct the apiUrl with form data
         const { companyName, category, top, minPrice, maxPrice } = formData;
-        const apiUrl = `http://localhost:3000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q`;
-        console.log(apiUrl); 
+        const apiUrl = `http://localhost:8000/categories/Laptop/products?top=10&minPrice=1&maxPrice=10000`;
+        console.log(apiUrl);
         axios.get(apiUrl)
-        .then((res)=> setProducts(res.data));
-
-
+            .then((res) => setProducts(res.data))
     };
     const apiUrl = "";
     return (

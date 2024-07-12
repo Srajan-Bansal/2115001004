@@ -9,7 +9,7 @@ function DataFetcher({ url }) {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch("http://localhost:8000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q");
+                const response = await fetch("http://localhost:8000/categories/Laptop/products?top=10&minPrice=1&maxPrice=10000");
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -23,7 +23,7 @@ function DataFetcher({ url }) {
         };
 
         fetchData();
-    }, ["http://localhost:8000/categories/Laptop/products?top=n&minPrice=p&maxPrice=q"]);
+    }, ["http://localhost:8000/categories/Laptop/products?top=10&minPrice=1&maxPrice=10000"]);
 
     if (isLoading) {
         return <p>Loading...</p>;
